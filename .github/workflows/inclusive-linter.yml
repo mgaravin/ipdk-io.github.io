@@ -20,4 +20,4 @@ jobs:
       - name: Run inclusive linter
         run: |
           export TERM=xterm
-          inclusivelint .
+          sudo inclusivelint .
