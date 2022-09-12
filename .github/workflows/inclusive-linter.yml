@@ -1,0 +1,22 @@
+name: inclusive-linter
+on:
+  - pull_request
+jobs:        
+  inclusive-linter:
+    name: inclusive-linter      
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install inclusive linter
+        run: |
+          wget https://github.com/fernandoBRS/inclusive-linter/releases/download/0.0.6/inclusivelint
+          sudo chmod +x inclusivelint && mv inclusivelint /usr/bin
+          mdkir ~/.inclusivelint
+          wget https://github.com/fernandoBRS/inclusive-linter/releases/download/0.0.6/outputRelation.txt
+          mv outputRelation.txt ~/.inclusivelint
+    - name: Run inclusive linter
+      run: |
+        export TERM=xterm
+        inclusivelint .
