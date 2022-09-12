@@ -14,9 +14,10 @@ jobs:
           wget https://github.com/inclusivelint/inclusivelint/releases/download/0.0.6/inclusivelint
           sudo apt install dos2unix
           sudo chmod +x inclusivelint && dos2unix inclusivelint inclusivelint && sudo mv inclusivelint /usr/bin
-          mkdir ~/.inclusivelint
+          sudo mkdir ~/.inclusivelint
           wget https://github.com/inclusivelint/inclusivelint/releases/download/0.0.6/outputRelation.txt
-          dos2unix outputRelation.txt outputRelation.txt && mv outputRelation.txt ~/.inclusivelint
+          sudo mv outputRelation.txt ~/.inclusivelint
+          sudo ls -ltr /root/.inclusivelint/
       - name: Run inclusive linter
         run: |
           export TERM=xterm
