@@ -12,6 +12,7 @@ jobs:
       - name: Install inclusive linter
         run: |
           wget https://github.com/inclusivelint/inclusivelint/releases/download/0.0.6/inclusivelint
+          sudo apt install dos2unix
           sudo chmod +x inclusivelint && dos2unix inclusivelint inclusivelint && sudo mv inclusivelint /usr/bin
           sudo mkdir ~/.inclusivelint
           wget https://github.com/inclusivelint/inclusivelint/releases/download/0.0.6/outputRelation.txt
