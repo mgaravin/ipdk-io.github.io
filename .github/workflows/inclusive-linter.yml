@@ -16,7 +16,7 @@ jobs:
           mdkir ~/.inclusivelint
           wget https://github.com/fernandoBRS/inclusive-linter/releases/download/0.0.6/outputRelation.txt
           mv outputRelation.txt ~/.inclusivelint
-    - name: Run inclusive linter
-      run: |
-        export TERM=xterm
-        inclusivelint .
+      - name: Run inclusive linter
+        run: |
+          export TERM=xterm
+          inclusivelint .
