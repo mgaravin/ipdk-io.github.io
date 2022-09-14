@@ -12,6 +12,6 @@ jobs:
       - name: woke
         uses: get-woke/woke-action@v0
         with:
-          woke-args: debug
+          woke-args: --debug
           # Cause the check to fail on any broke rules
           fail-on-error: true
