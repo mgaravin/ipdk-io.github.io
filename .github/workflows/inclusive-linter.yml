@@ -1,0 +1,24 @@
+name: inclusive-linter
+on:
+  - pull_request
+jobs:        
+  inclusive-linter:
+    name: inclusive-linter      
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install inclusive linter
+        run: |
+          wget https://github.com/inclusivelint/inclusivelint/releases/download/0.0.6/inclusivelint
+          sudo apt install dos2unix
+          sudo chmod +x inclusivelint && dos2unix inclusivelint inclusivelint && sudo mv inclusivelint /usr/bin
+          sudo mkdir -p /root/.inclusivelint/
+          wget https://github.com/inclusivelint/inclusivelint/releases/download/0.0.6/outputRelation.txt
+          sudo mv outputRelation.txt /root/.inclusivelint/
+          sudo ls -ltr /root/.inclusivelint/
+      - name: Run inclusive linter
+        run: |
+          export TERM=xterm
+          sudo inclusivelint .
